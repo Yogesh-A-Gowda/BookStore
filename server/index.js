@@ -7,7 +7,7 @@ const bookroute = require('./routes/bookRoute')
 
 app.use(cors(
     {
-        origin : 'http://localhost:5173',
+        origin : process.env.FRONT_END,
         methods : ['GET','POST','PUT','DELETE'],
         allowedHeaders : ['Content-Type'],
     }
