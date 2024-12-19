@@ -12,7 +12,7 @@ export const ShowBook = () => {
   useEffect(() => {
     setLoading(true);
     
-    axios.get(`http://127.0.0.1:3000/books/${id}`)
+    axios.get(`${import.meta.env.VITE_PORT}/books/${id}`)
       .then(response => {
         setBook(response.data);
         setLoading(false);

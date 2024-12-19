@@ -13,7 +13,7 @@ export const Home = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get('http://127.0.0.1:3000/books').then(response => setBooks(response.data.data));
+        axios.get(`${import.meta.env.VITE_PORT}/books`).then(response => setBooks(response.data.data));
         setLoading(false);
     },[]);
 

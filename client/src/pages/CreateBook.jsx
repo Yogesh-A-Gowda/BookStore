@@ -23,7 +23,7 @@ const CreateBook = () => {
     };
     setLoading(true);
     axios
-      .post('http://localhost:3000/books', data)
+      .post(`${import.meta.env.VITE_PORT}/books`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Created successfully', { variant: 'success' });

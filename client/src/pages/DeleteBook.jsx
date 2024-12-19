@@ -12,7 +12,7 @@ export const DeleteBook = () => {
   const {enqueueSnackbar} = useSnackbar();
   const handleDeleteBook = () => {
     setLoading(true);
-    axios.delete(`http://127.0.0.1:3000/books/${id}`).then(() => {
+    axios.delete(`${import.meta.env.VITE_PORT}/books/${id}`).then(() => {
       setLoading(false);
       enqueueSnackbar('Book Deleted Successfully',{variant:'success'})
       navigate('/')

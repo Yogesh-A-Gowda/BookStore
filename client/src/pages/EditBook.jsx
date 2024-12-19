@@ -19,7 +19,7 @@ export const EditBook = () => {
 
   useEffect(() => {
     setLoading(true)
-    axios.get(`http://127.0.0.1:3000/books/${id}`).then((response) => {
+    axios.get(`${import.meta.env.VITE_PORT}/books/${id}`).then((response) => {
       setTitle(response.data.title)
       setAuthor(response.data.author)
       setPublishYear(response.data.publishYear)
@@ -38,7 +38,7 @@ export const EditBook = () => {
     };
     setLoading(true);
     axios
-      .put(`http://localhost:3000/books/${id}`, data)
+      .put(`${import.meta.env.VITE_PORT}/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Created successfully', { variant: 'success' });
