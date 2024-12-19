@@ -13,6 +13,7 @@ app.use(cors(
         origin : furl,
         methods : ['GET','POST','PUT','DELETE'],
         allowedHeaders : ['Content-Type', 'Authorization', 'Accept', 'Origin', 'X-Requested-With'],
+        credentials:true
     }
 
 ))
