@@ -4,16 +4,16 @@ const cors =  require('cors');
 const BookModel = require('./models/bookmodel')
 const bookroute = require('./routes/bookRoute')
 
-
 app.use(cors(
     {
-        origin : process.env.FRONT_END,
+        origin : 'http://localhost:5173',
         methods : ['GET','POST','PUT','DELETE'],
         allowedHeaders : ['Content-Type'],
     }
 
 ))
-app.use(express.json())
+console.log(process.env.FRONT_END);
+app.use(express.json());
 const mongoose = require('mongoose');
 const dotenv = require('dotenv')
 dotenv.config()
