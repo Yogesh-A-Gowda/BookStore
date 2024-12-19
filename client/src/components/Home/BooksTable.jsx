@@ -23,7 +23,7 @@ export const BooksTable = ({books}) => {
                     </thead>
                     <tbody>
                     {  
-                    books.map((book,index) => 
+                    books && books.map((book,index) => 
                         (
                         <tr key={book._id}>
 
