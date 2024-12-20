@@ -11,13 +11,24 @@ furl = process.env.FREND;
 console.log(furl);
 
 // CORS configuration
-app.use(cors(
-    {
-        origin: furl,
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        allowedHeaders: ['Content-Type']
+const allowedOrigins = [
+  furl, // Local development
+  'https://book-store-zeta-sable.vercel.app', // Production frontend
+];
+
+// CORS middleware
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (e.g., mobile apps or Postman)
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true); // Allow the request
+    } else {
+      callback(new Error('Not allowed by CORS')); // Deny the request
     }
-));
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'Origin', 'X-Requested-With'],
+}));
 
 app.use(express.json());
 
