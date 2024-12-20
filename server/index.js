@@ -12,7 +12,8 @@ console.log(furl);
 
 // CORS configuration
 const allowedOrigins = [
-  furl, // Local development// Production frontend
+  furl, // Local development
+  'https://book-store-zeta-sable.vercel.app',// Production frontend
 ];
 
 // CORS middleware
